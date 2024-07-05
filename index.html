@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <section class="calculator-input">
+          <div class="calc-header">
+            <h1>Mortgage Calculator</h1>
+            <button>Clear All</button>
+          </div>
+
+          <form>
+            <label for="mortgage-amt">Mortgage Amount</label>
+            <input type="number" id="mortgage-amt" />
+
+            <div class="flex">
+              <div>
+                <label for="mortgage-term">Mortgage Term</label>
+                <input type="number" id="mortgage-term" />
+              </div>
+
+              <div>
+                <label for="interest-rate">Interest Rate</label>
+                <input type="number" id="interest-rate" />
+              </div>
+            </div>
+
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="repayment" name="mortgage-type" />
+                <label for="repayment">Repayment</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="interest-only" name="mortgage-type" />
+                <label for="interest-only">Interest Only</label>
+              </div>
+            </div>
+
+            <button type="submit">Calculate Repayments</button>
+          </form>
+        </section>
+        <section class="results">
+          <!-- empty results -->
+          <div>
+            <img
+              src="/assets/images/illustration-empty.svg"
+              alt="Empty Results image"
+            />
+          </div>
+          <h2>Results shown here</h2>
+          <p>
+            Complete the form and click “calculate repayments” to see what your
+            monthly repayments would be.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </body>
+</html>
