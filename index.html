@@ -27,37 +27,57 @@
         <section class="calculator-input">
           <div class="calc-header">
             <h1>Mortgage Calculator</h1>
-            <button>Clear All</button>
+            <button type="button" class="clear-btn">Clear All</button>
           </div>
 
           <form>
-            <label for="mortgage-amt">Mortgage Amount</label>
-            <input type="number" id="mortgage-amt" />
+            <div class="form-item">
+              <label for="mortgage-amt">Mortgage Amount</label>
+              <div class="input-field">
+                <span class="input-icon prefix">$</span>
+                <input type="number" id="mortgage-amt" />
+              </div>
+            </div>
 
             <div class="flex">
-              <div>
+              <div class="form-item">
                 <label for="mortgage-term">Mortgage Term</label>
-                <input type="number" id="mortgage-term" />
+                <div class="input-field">
+                  <span class="input-icon suffix years">years</span>
+                  <input type="number" id="mortgage-term" />
+                </div>
               </div>
 
-              <div>
+              <div class="form-item">
                 <label for="interest-rate">Interest Rate</label>
-                <input type="number" id="interest-rate" />
+                <div class="input-field">
+                  <span class="input-icon suffix percentage">%</span>
+                  <input type="number" id="interest-rate" />
+                </div>
               </div>
             </div>
 
-            <div class="radio-group">
-              <div class="radio-option">
-                <input type="radio" id="repayment" name="mortgage-type" />
-                <label for="repayment">Repayment</label>
-              </div>
-              <div class="radio-option">
-                <input type="radio" id="interest-only" name="mortgage-type" />
-                <label for="interest-only">Interest Only</label>
+            <div class="form-item">
+              <label class="radioGroup-label">Mortgage Type</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="repayment" name="mortgage-type" />
+                  <label for="repayment">Repayment</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="interest-only" name="mortgage-type" />
+                  <label for="interest-only">Interest Only</label>
+                </div>
               </div>
             </div>
 
-            <button type="submit">Calculate Repayments</button>
+            <button type="submit" class="submit-btn">
+              <img
+                src="/assets/images/icon-calculator.svg"
+                alt="Calculator Icon"
+              />
+              Calculate Repayments
+            </button>
           </form>
         </section>
         <section class="results">
@@ -66,10 +86,11 @@
             <img
               src="/assets/images/illustration-empty.svg"
               alt="Empty Results image"
+              class="empty-illustration"
             />
           </div>
-          <h2>Results shown here</h2>
-          <p>
+          <h2 class="results-header">Results shown here</h2>
+          <p class="instructions">
             Complete the form and click “calculate repayments” to see what your
             monthly repayments would be.
           </p>
@@ -82,5 +103,6 @@
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
       Coded by <a href="#">Your Name Here</a>.
     </div> -->
+    <script src="index.js"></script>
   </body>
 </html>
