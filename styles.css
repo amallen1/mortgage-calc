@@ -25,12 +25,10 @@ html {
 body {
   background-color: var(--slate-100);
   font-family: "Plus Jakarta Sans", sans-serif;
-  /* position: relative; */
 }
 
 h1 {
   line-height: 125%;
-  letter-spacing: -1px;
   margin-bottom: 0.5rem;
 }
 
@@ -99,6 +97,10 @@ input[type="number"] {
   -moz-appearance: textfield; /* hides spinner on firefox */
 }
 
+input[type="number"].error {
+  border-color: red;
+}
+
 input[type="number"]:hover {
   border-color: var(--slate-900);
 }
@@ -143,6 +145,11 @@ input[type="number"]::-webkit-outer-spin-button {
   line-height: 125%;
   font-size: 18px;
   transition: background-color 0.2s ease;
+}
+
+.input-icon.error {
+  background-color: var(--red);
+  color: var(--white);
 }
 
 .input-icon.prefix {
@@ -242,26 +249,83 @@ input[type="radio"]:checked::after {
   background-color: #eced97;
 }
 
-/* results section */
-
 .results {
   background-color: var(--slate-900);
   padding: 2rem 1.5rem;
   flex: 1;
+}
+
+.results h2 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.results p {
+  color: var(--slate-300);
+  line-height: 150%;
+}
+
+.results.empty {
   text-align: center;
+}
+
+.results.empty.hidden {
+  display: none;
+}
+
+.results.completed {
+  display: none;
+}
+
+.results.completed.show {
+  display: block;
+}
+
+.results-header {
+  margin-bottom: 1.5rem;
+}
+
+.result-card {
+  padding: 1.5rem 1rem;
+  background-color: #0e2431;
+  border-radius: 8px;
+  border-top: 4px solid var(--lime);
+}
+
+.result-card hr {
+  border-color: rgba(213, 212, 154, 0.25);
+  margin: 1rem 0;
+}
+
+#monthlyRepaymentAmount {
+  color: var(--lime);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+#totalRepaymentAmount {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 125%;
+  font-weight: 700;
 }
 
 .empty-illustration {
   margin-bottom: 1rem;
 }
 
-.results-header {
-  color: var(--white);
-  margin-bottom: 1rem;
+.result-card p {
+  margin-bottom: 0.5rem;
 }
 
-.instructions {
-  color: var(--slate-300);
+.error-msg {
+  display: none;
+  color: var(--red);
+  margin-top: 12px;
+}
+
+.error-msg.show {
+  display: block;
 }
 
 /* Attribution */
@@ -275,8 +339,8 @@ input[type="radio"]:checked::after {
   justify-content: center;
   color: var(--white);
 }
+
 .attribution a {
-  /* color: hsl(228, 45%, 44%); */
   color: var(--lime);
 }
 
@@ -338,6 +402,21 @@ input[type="radio"]:checked::after {
     border-radius: 0px 0px 24px 24px;
     padding: 2.5rem;
   }
+  .results-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .result-card {
+    padding: 2rem;
+  }
+
+  #monthlyRepaymentAmount {
+    font-size: 3.5rem;
+  }
+
+  .results hr {
+    margin: 2rem 0;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -361,7 +440,6 @@ input[type="radio"]:checked::after {
     border-radius: 24px 0px 0px 24px;
   }
 
-  /* empty results */
   .results {
     border-radius: 0px 24px 24px 80px;
     display: flex;

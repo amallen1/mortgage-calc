@@ -27,16 +27,21 @@
         <section class="calculator-input">
           <div class="calc-header">
             <h1>Mortgage Calculator</h1>
-            <button type="button" class="clear-btn">Clear All</button>
+            <button type="button" class="clear-btn" id="clear-btn">
+              Clear All
+            </button>
           </div>
 
-          <form>
+          <form id="mortgage-form">
             <div class="form-item">
               <label for="mortgage-amt">Mortgage Amount</label>
               <div class="input-field">
                 <span class="input-icon prefix">$</span>
                 <input type="number" id="mortgage-amt" />
               </div>
+              <span class="error-msg" id="error-msg"
+                >This field is required
+              </span>
             </div>
 
             <div class="flex">
@@ -46,29 +51,48 @@
                   <span class="input-icon suffix years">years</span>
                   <input type="number" id="mortgage-term" />
                 </div>
+                <span class="error-msg" id="error-msg"
+                  >This field is required
+                </span>
               </div>
 
               <div class="form-item">
                 <label for="interest-rate">Interest Rate</label>
                 <div class="input-field">
                   <span class="input-icon suffix percentage">%</span>
-                  <input type="number" id="interest-rate" />
+                  <input type="number" id="interest-rate" step="any" />
                 </div>
+                <span class="error-msg" id="error-msg"
+                  >This field is required
+                </span>
               </div>
             </div>
 
             <div class="form-item">
               <label class="radioGroup-label">Mortgage Type</label>
-              <div class="radio-group">
+              <div class="radio-group" id="radio-group">
                 <div class="radio-option">
-                  <input type="radio" id="repayment" name="mortgage-type" />
+                  <input
+                    type="radio"
+                    id="repayment"
+                    name="mortgage-type"
+                    value="Repayment"
+                  />
                   <label for="repayment">Repayment</label>
                 </div>
                 <div class="radio-option">
-                  <input type="radio" id="interest-only" name="mortgage-type" />
+                  <input
+                    type="radio"
+                    id="interest-only"
+                    name="mortgage-type"
+                    value="Interest Only"
+                  />
                   <label for="interest-only">Interest Only</label>
                 </div>
               </div>
+              <span class="error-msg" id="error-msg"
+                >This field is required
+              </span>
             </div>
 
             <button type="submit" class="submit-btn">
@@ -80,8 +104,7 @@
             </button>
           </form>
         </section>
-        <section class="results empty">
-          <!-- empty results -->
+        <section class="results empty" id="empty-section">
           <div>
             <img
               src="/assets/images/illustration-empty.svg"
@@ -89,13 +112,32 @@
               class="empty-illustration"
             />
           </div>
-          <h2 class="results-header">Results shown here</h2>
+          <h2>Results shown here</h2>
           <p class="instructions">
             Complete the form and click “calculate repayments” to see what your
             monthly repayments would be.
           </p>
         </section>
+        <section class="results completed" id="completed-section">
+          <div class="results-header">
+            <h2>Your results</h2>
+            <p>
+              Your results are shown below based on the information you
+              provided. To adjust the results, edit the form and click
+              “calculate repayments” again.
+            </p>
+          </div>
 
+          <div class="result-card">
+            <div>
+              <p class="payment">Your monthly repayments</p>
+              <span id="monthlyRepaymentAmount"></span>
+            </div>
+            <hr />
+            <p>Total you'll repay over the term</p>
+            <span id="totalRepaymentAmount"></span>
+          </div>
+        </section>
       </div>
     </main>
 
